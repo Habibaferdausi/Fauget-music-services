@@ -21,7 +21,7 @@ export default function LoggedBanner() {
             </div>
             </div>
             <div className=' ps-3 pt-3 flex justify-end'>
-                <img src="./image2.png" className='mt-7 me-5'/>
+                <img src="./image2.png" className='mt-5 me-5'/>
             </div>
         </div>
     </div>
