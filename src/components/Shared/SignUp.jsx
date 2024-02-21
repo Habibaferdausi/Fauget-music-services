@@ -1,7 +1,49 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Music from "../../../public/music.svg"
 import Image from 'next/image'
+import Swal from 'sweetalert2';
+import { AuthContext } from '@/app/api/auth/AuthProvider';
+import { useRouter } from 'next/navigation';
 export default function SignUp() {
+  const { createUser, updateUser } = useContext(AuthContext);
+  const  navigate = useRouter();
+
+
+
+const handleSignUp = (event) => {
+  event.preventDefault();
+  const form = event.target;
+  const name = form.name.value;
+  const email = form.email.value;
+  const password = form.password.value;
+  
+
+  if ((name, email, password)) {
+    createUser(email, password)
+      .then((result) => {
+        updateUser(result.user,name)
+          .then(() => {
+              navigate.push('/')
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Successfully Register",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          })
+          .catch((err) => {
+            console.log(err.message);
+          });
+        console.log(result.user);
+      
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }
+};
+
   return (
     <div>
 
@@ -14,8 +56,20 @@ export default function SignUp() {
       Fauget</h1>
       </div>
       <h1 className='text-center my-3 pb-1 font-bold text-[39px]'>Sign Up</h1>
-      <form className='px-8' >
+      <form onSubmit={handleSignUp} className='px-8' >
               
+      <div className="form-control">
+                <label className="label">
+                  <span className="label-text  text-[18px] mt-3 mb-1">Name:</span>
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Enter Your Name"
+                  className="input rounded-md bg-[#0C0C0C] "
+                  required
+                />
+                </div>
               <div className="form-control ">
                 <label className="label">
                   <span className="label-text text-[18px] mt-3 mb-1 ">Email :</span>
@@ -24,7 +78,7 @@ export default function SignUp() {
                   type="email"
                   name="email"
                   placeholder="example@mail.com"
-                  className="input rounded-md bg-[#0C0C0C] text-[18px]"
+                  className="input rounded-md bg-[#0C0C0C] "
                   required
                 />
               </div>
@@ -42,9 +96,6 @@ export default function SignUp() {
                 />
               </div>
 
-              
-             
-
               <div className="form-control pt-11 mb-5">
                 <input
                   className="button bg-black"
@@ -52,8 +103,10 @@ export default function SignUp() {
                   value="Create an account"
                 />
               </div>
+             
             </form>
-            <h1 className='text-white px-9  py-3'> Have account? Sign in  account? <span className=' text-black'>signin</span>   </h1>
+            <h1 className='text-white px-9  py-3'> Have account? Sign in  account <span className=' text-black'>signin</span>   </h1> 
+        
   </div>
   <form method="dialog" className="modal-backdrop">
     <button>close</button>

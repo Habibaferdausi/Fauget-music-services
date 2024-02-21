@@ -32,11 +32,11 @@ const Categories = () => {
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {data.map(song => (
-       <  Link key={song.id} className="relative" href={`/podcast/${song.id}`} passHref>
+       < div key={song.id} className="relative" >
          <img src={song.album.cover} alt={song.title} className="img-card" />
          <img src="./play.svg" className="absolute inset-0 pb-4  m-auto" />
          <h2 className="text-[18px] text-center mt-1">{song.title}</h2>
-       </Link>
+       </div>
         ))}
       </div>
     </div>

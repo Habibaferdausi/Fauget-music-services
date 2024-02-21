@@ -4,15 +4,15 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import Music from "@/../public/music.svg"
 import { Home, Logout, Mic, MusicNote, QueueMusic, Search, Settings } from '@mui/icons-material';
-import SignIn from './SignIn';
-import SignUp from './SignUp';
+
 import { useContext } from 'react';
 import { AuthContext } from '@/app/api/auth/AuthProvider';
+import SignIn from './SignIn';
+import SignUp from './SignUp';
 
 const SideNav = ({ children }) => {
   const pathName = usePathname();
   const {user,logOut}=useContext(AuthContext);
-  console.log(user);
 
 
   const handleLogOut = () => {
@@ -142,8 +142,8 @@ const SideNav = ({ children }) => {
   ):(
 
     <div className='flex gap-6 justify-between item-center'>
- <SignIn/>
-   <SignUp/>
+<SignIn/>
+<SignUp/>
 
  </div>
   )}
