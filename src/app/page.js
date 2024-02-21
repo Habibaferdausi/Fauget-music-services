@@ -1,5 +1,6 @@
 import Categories from "@/components/Home/Categories";
-import WithoutLogin from "@/components/Home/WithoutLogin";
+import LoggedBanner from "@/components/Home/LoggedBanner";
+
 import SideNav from "@/components/Shared/SideNav";
 
 
@@ -9,7 +10,7 @@ export default function Home() {
      
      <SideNav>
       <div className="">
-   <WithoutLogin/>
+   <LoggedBanner/>
     <Categories/>
       </div>
     </SideNav>
