@@ -4,7 +4,7 @@ import React from 'react'
 
 export default function page() {
   return (
-    <div>
+    <div className='max-w-[1440px] mx-auto'>
       <SideNav>
         <Podcast/>
       </SideNav>

@@ -4,9 +4,22 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import Music from "@/../public/music.svg"
 import { Home, Logout, Mic, MusicNote, QueueMusic, Search, Settings } from '@mui/icons-material';
+import SignIn from './SignIn';
+import SignUp from './SignUp';
+import { useContext } from 'react';
+import { AuthContext } from '@/app/api/auth/AuthProvider';
 
 const SideNav = ({ children }) => {
   const pathName = usePathname();
+  const {user,logOut}=useContext(AuthContext);
+  console.log(user);
+
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
 
 
   return (
@@ -46,11 +59,13 @@ const SideNav = ({ children }) => {
           <h1 className='text-[22px] ps-5 font-semibold '>Setting</h1>
 
         </Link>
-        <button className='flex justify-start items-center pt-6'>
-          <Logout/>
-          <h1 className='text-[22px] ps-5 font-semibold '>Logout</h1>
-
+        {user ? (
+        <button onClick={handleLogOut} className='flex text-white justify-start items-center pt-6'>
+          <Logout />
+          <h1 className='text-[22px] ps-5 font-semibold'>Logout</h1>
         </button>
+      ) : null}
+        
         </div>
 
 {/* 2nd part */}
@@ -91,10 +106,20 @@ const SideNav = ({ children }) => {
       <div className="flex flex-col w-full ml-1/5"> 
         {/* Top Navbar */}
         <div className=" flex justify-between items-center pt-9 px-8">
+        
+         
           <div>
-           <h1 className='text-white margin-common text-[30px] font-semibold'>Welcome to fauget music services</h1>
+            {user ?(
+               <h1 className='text-white margin-common text-[30px] font-semibold'>Welcome , {user?.displayName}</h1>
+            ):(
+              <h1 className='text-white margin-common text-[30px] font-semibold'>Welcome to fauget music services</h1>
+            )}
+          
           </div>
-          <div className="flex gap-5 me-1 items-center">
+         
+<div>
+  {user ? (
+     <div className="flex gap-5 me-1 items-center">
           <div className="relative">
   <span className="absolute inset-y-0 left-3  flex items-center ps-4">
 <Search/>
@@ -111,8 +136,24 @@ const SideNav = ({ children }) => {
   </span>
 </div>
 
-            <img src="/user_img.png" alt="User" className="h-8 w-8 rounded-full" />
-          </div>
+            <img src="https://i.ibb.co/Sv7N6ky/Screenshot-9.jpg" alt="User" className="h-8 w-8 rounded-full" />
+          </div> 
+
+  ):(
+
+    <div className='flex gap-6 justify-between item-center'>
+ <SignIn/>
+   <SignUp/>
+
+ </div>
+  )}
+</div>
+
+
+ 
+        
+         
+         
         </div>
 
         {/* Main Content Area */}

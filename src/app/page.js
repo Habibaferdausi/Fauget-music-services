@@ -1,3 +1,4 @@
+import BannerLayout from "@/components/Home/BannerLayout";
 import Categories from "@/components/Home/Categories";
 import LoggedBanner from "@/components/Home/LoggedBanner";
 
@@ -9,10 +10,9 @@ export default function Home() {
     <main className="max-w-[1440px] mx-auto">
      
      <SideNav>
-      <div className="">
-   <LoggedBanner/>
+  <BannerLayout/>
     <Categories/>
-      </div>
+      
     </SideNav>
 
   

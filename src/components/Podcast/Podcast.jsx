@@ -26,14 +26,12 @@ const Podcast = () => {
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {data.map(song => (
-          <Link key={song.id} href={`/podcast/${song.id}`} passHref> {/* Pass href to Link */}
-            <div className="">
-              <img src={song.album.cover} alt={song.title} className="img-card" />
-              <h2 className="text-[18px] text-center mt-1">{song.title}</h2>
-              <audio controls className="w-full pt-4">
-                <source src={song.preview} type="audio/mpeg" />
-              </audio>
-            </div>
+          <Link key={song.id} className="relative" href={`/podcast/${song.id}`} passHref>
+               <div >
+         <img src={song.album.cover} alt={song.title} className="img-card" />
+         <img src="./play.svg" className="absolute inset-0 pb-4  m-auto" />
+         <h2 className="text-[18px] text-center mt-1">{song.title}</h2>
+       </div>
           </Link>
         ))}
       </div>
