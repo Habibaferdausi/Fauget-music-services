@@ -63,7 +63,7 @@ function Navbar(props) {
     <ListItem
       key={text}
       disablePadding
-      className={pathName.startsWith("/" + text.toLocaleLowerCase()) ? "text-[#069D95]" : "text-white"}
+      className={pathName.startsWith("/" ) ? "text-[#069D95]" : "text-white"}
     
     >
       <ListItemButton>

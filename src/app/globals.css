@@ -2,9 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-.font-custom {
-  font-family: 'Nico Moji', sans-serif;
+@font-face {
+  font-family: 'CustomFont';
+  src: url('../../public/NicoMoji.ttf') format('truetype');
 }
+
+
+.custom-font {
+  font-family: 'CustomFont', sans-serif; 
+}
+
 .border-custom{
   border-top: 1px;
   border-color: white;

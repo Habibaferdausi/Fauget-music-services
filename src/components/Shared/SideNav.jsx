@@ -1,62 +1,93 @@
 "use client";
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import Music from "@/../public/music.svg"
+import { Home, Logout, MusicNote, QueueMusic, Settings } from '@mui/icons-material';
 
 const SideNav = ({ children }) => {
-  const router = useRouter();
+  const pathName = usePathname();
 
-  const isActive = (href) => {
-    return router.pathname === href;
-  };
 
   return (
     <div className="flex h-screen">
       {/* Sidebar */}
       <div className="bg-[#3B3B3B] w-[253px] h-full fixed overflow-y-auto">
-        <div className="flex flex-col justify-between w-[210px] h-full">
+        <div className="flex flex-col justify-start w-[210px] h-full">
             <div className='flex justify-center mt-9'>
                 <Image src={Music} height={18} width={12} className='me-1'/>
-      <h1 className='text-[30px] font-custom '>
+      <h1 className='text-[30px] custom-font my-6 '>
       Fauget</h1>
       </div>
-      <div className='flex justify-center mt-3'>
+      <div className='flex justify-between items-center mt-6'>
                 
-      <h1 className='text-[22px]  font-semibold'>
+      <h1 className='text-[22px] px-4  text-white  font-semibold'>
       Menu
           </h1>
-          <div className='w-[70px] bg-white  border-custom'></div></div>
-        
-            <div>
+          <div className='w-[70px] h-[1px] bg-white  border-custom'></div>
+          </div>
+          <div className='px-4 mt-3'>
+        <Link href="/"  className={pathName.startsWith("" ) ? "text-[#069D95] flex justify-start items-center mt-5" : "text-white flex justify-start items-center mt-5"}>
+          <Home/>
+          <h1 className='text-[22px] ps-5 font-semibold '>Home</h1>
 
-            </div>
-          <div className="mt-8">
-            <Link href="/">
-              <h1 className={isActive("/") ? "text-[#069D95] font-bold text-lg mx-4" : "text-white font-bold text-lg mx-4"}>Home</h1>
-            </Link>
-            <Link href="/music">
-              <h1 className={isActive("/music") ? "text-[#069D95] font-bold text-lg mx-4" : "text-white font-bold text-lg mx-4"}>Music</h1>
-            </Link>
-            <Link href="/settings">
-              <h1 className={isActive("/settings") ? "text-[#069D95] font-bold text-lg mx-4" : "text-white font-bold text-lg mx-4"}>Settings</h1>
-            </Link>
+        </Link>
+        <Link href="/podcast"  className={pathName.startsWith("/podcast" ) ? "text-[#069D95] flex justify-start items-center pt-6" : "text-white flex justify-start items-center pt-6"}>
+        <Image src={Music} height={19} width={17} className='ms-1'/>
+          <h1 className='text-[22px] ps-5 font-semibold '>Podcast</h1>
+
+        </Link>
+        <Link href="/setting"  className={pathName.startsWith("/setting" ) ? "text-[#069D95] flex justify-start items-center pt-6" : "text-white flex justify-start items-center pt-6"}>
+          <Settings/>
+          <h1 className='text-[22px] ps-5 font-semibold '>Setting</h1>
+
+        </Link>
+        <button className='flex justify-start items-center pt-6'>
+          <Logout/>
+          <h1 className='text-[22px] ps-5 font-semibold '>Logout</h1>
+
+        </button>
+        </div>
+
+
+        <div className='flex justify-between items-center mt-20 pt-10'>
+                
+      <h1 className='text-[22px] text-white  px-4 w-full font-semibold'>
+      My Playlist
+          </h1>
+          <div className='w-[40px] h-[1px] bg-white  border-custom'></div>
           </div>
-          <div className="mb-8">
-            <Link href="/logout">
-              <h1 className={isActive("/logout") ? "text-[#069D95] font-bold text-lg mx-4" : "text-white font-bold text-lg mx-4"}>Logout</h1>
-            </Link>
-            {/* Add similar logic for other links */}
-          </div>
+          <div className='px-4 mt-3'>
+        <div className='flex justify-start text-white items-center mt-5' >
+          <QueueMusic/>
+          <h1 className='text-[22px] ps-5 font-semibold '>Playlist  #A</h1>
+
+        </div>
+        <div className='flex justify-start text-white  items-center mt-6' >
+          <QueueMusic/>
+          <h1 className='text-[22px] ps-5 font-semibold '>Playlist  #B</h1>
+
+        </div>
+        <div className='flex justify-start text-white  items-center mt-6' >
+          <QueueMusic/>
+          <h1 className='text-[22px] ps-5 font-semibold '>Playlist  #C</h1>
+
+        </div>
+        <div className='flex justify-start text-white  items-center mt-6' >
+          <QueueMusic/>
+          <h1 className='text-[22px] ps-5 font-semibold '>Add New +</h1>
+
+        </div>
+        </div>
         </div>
       </div>
 
       {/* Main Content and Top Navbar */}
       <div className="flex flex-col w-full ml-1/5"> {/* Adjust the margin to accommodate the sidebar width */}
         {/* Top Navbar */}
-        <div className="bg-black h-16 flex justify-between items-center px-4">
+        <div className=" flex justify-between items-center pt-9 px-8">
           <div>
-            <img src="/company_logo.png" alt="Company Logo" className="h-8" />
+           <h1 className='text-white margin-common text-[30px] font-semibold'>Welcome to fauget music services</h1>
           </div>
           <div className="flex items-center">
             <input type="text" placeholder="Search" className="bg-gray-300 px-2 py-1 rounded-md mr-4" />
