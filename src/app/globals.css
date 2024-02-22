@@ -85,3 +85,45 @@ height: 718px;
 border-radius: 10px;
 
 }
+
+@media (max-width: 768px) {
+  .banner {
+    width: 100%; 
+    height: auto;
+    margin-left: 0; 
+  }
+
+  .margin-common {
+    margin-left: 0; 
+  }
+
+  .width {
+    width: 100%; 
+  }
+
+  .button, .common-btn, .custom-button, .search, .signup-size {
+    width: 100%; 
+    max-width: 300px; 
+    margin: 10px auto; 
+  }
+
+  .img-card {
+    width: 100%; 
+    max-width: 200px;
+    height: auto; 
+  }
+
+  .margin {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .signup-size {
+    height: auto;
+    max-width: 300px; 
+    padding: 20px; 
+  }
+
+ 
+}

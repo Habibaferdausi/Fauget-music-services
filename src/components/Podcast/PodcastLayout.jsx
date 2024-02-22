@@ -7,9 +7,6 @@ import React, { useContext } from 'react'
 
 export default function PodcastLayout() {
     const {user}= useContext(AuthContext);
-   
-  
-    
     
   return (
     <div className='max-w-[1440px] mx-auto'>

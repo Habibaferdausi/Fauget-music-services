@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import Music from "@/../public/music.svg"
+import Logo from "@/../public/music.svg"
 import { Home, Logout, Mic, MusicNote, QueueMusic, Search, Settings } from '@mui/icons-material';
 
 import { useContext } from 'react';
@@ -29,7 +29,7 @@ const SideNav = ({ children }) => {
         <div className="flex flex-col justify-start w-[210px] h-full">
           {/* logo part */}
             <div className='flex justify-center mt-9'>
-                <Image src={Music} height={18} width={12} className='me-1'/>
+                <Image src={Logo} height={18} width={12} className='me-1'/>
       <h1 className='text-[30px] custom-font my-6 '>
       Fauget</h1>
       </div>
@@ -44,17 +44,17 @@ const SideNav = ({ children }) => {
           <div className='w-[70px] h-[1px] bg-white  border-custom'></div>
           </div>
           <div className='px-4 mt-3'>
-        <Link href="/"  className={pathName.startsWith("" ) ? "text-[#069D95] flex justify-start items-center mt-5" : "text-white flex justify-start items-center mt-5"}>
-          <Home/>
-          <h1 className='text-[22px] ps-5 font-semibold '>Home</h1>
+          <Link href="/" className={pathName === "/" ? "text-[#069D95] flex justify-start items-center mt-5" : "text-white flex justify-start items-center mt-5"}>
+  <Home/>
+  <h1 className='text-[22px] ps-5 font-semibold '>Home</h1>
+</Link>
 
-        </Link>
-        <Link href="/podcast"  className={pathName.startsWith("/podcast" ) ? "text-[#069D95] flex justify-start items-center pt-6" : "text-white flex justify-start items-center pt-6"}>
-        <Image src={Music} height={19} width={17} className='ms-1'/>
+        <Link href="/podcast"  className={pathName === "/podcast" ? "text-[#069D95] flex justify-start items-center pt-6" : "text-white flex justify-start items-center pt-6"}>
+        <MusicNote/>
           <h1 className='text-[22px] ps-5 font-semibold '>Podcast</h1>
 
         </Link>
-        <Link href="/setting"  className={pathName.startsWith("/setting" ) ? "text-[#069D95] flex justify-start items-center pt-6" : "text-white flex justify-start items-center pt-6"}>
+        <Link href="/setting"  className={pathName === "/setting"? "text-[#069D95] flex justify-start items-center pt-6" : "text-white flex justify-start items-center pt-6"}>
           <Settings/>
           <h1 className='text-[22px] ps-5 font-semibold '>Setting</h1>
 
