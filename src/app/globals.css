@@ -86,44 +86,44 @@ border-radius: 10px;
 
 }
 
+
 @media (max-width: 768px) {
+
   .banner {
-    width: 100%; 
-    height: auto;
-    margin-left: 0; 
+    height: 332px;
+    width: auto;
+    background: linear-gradient(270deg, rgba(0, 113, 130, 0.8) 82.4%, rgba(3, 238, 210, 0.8) 100%);
+    margin-left: 10px;
+    margin-right: 10px;
   }
+    .margin-common{
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    .button{
+      width: 130px;
+    height: 50px;
+    
+    border-radius: 25px;
+    border: 1px  solid black;
+    color:white
+    }
+    .common-btn{
+      width: 70px;
+    height: 30px;
+    border-radius: 25px;
+    background-color: #3B3B3B80;
+    color: white;
+    }
+    .width{
+      width: auto;
+    }
 
-  .margin-common {
-    margin-left: 0; 
-  }
-
-  .width {
-    width: 100%; 
-  }
-
-  .button, .common-btn, .custom-button, .search, .signup-size {
-    width: 100%; 
-    max-width: 300px; 
-    margin: 10px auto; 
-  }
-
-  .img-card {
-    width: 100%; 
-    max-width: 200px;
-    height: auto; 
-  }
-
-  .margin {
-    margin-left: 0;
-  }
-}
-
-@media (max-width: 480px) {
-  .signup-size {
-    height: auto;
-    max-width: 300px; 
-    padding: 20px; 
-  }
-
- 
+    .custom-button {
+      background-color: rgba(9, 9, 9, 0.6);
+      width: 100px;
+    height: 24px;
+    border-radius: 15px;
+    color:white;
+    }
 }

@@ -5,14 +5,16 @@ import { usePathname, useRouter } from 'next/navigation';
 import Logo from "@/../public/music.svg"
 import { Home, Logout, Mic, MusicNote, QueueMusic, Search, Settings } from '@mui/icons-material';
 
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '@/app/api/auth/AuthProvider';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
+import MobileNav from './MobileNav';
 
 const SideNav = ({ children }) => {
   const pathName = usePathname();
   const {user,logOut}=useContext(AuthContext);
+  const [scroll, setScroll] = useState(false);
 
 
   const handleLogOut = () => {
@@ -23,14 +25,24 @@ const SideNav = ({ children }) => {
 
 
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen  ">
+      <div className='lg:hidden block'>
+      <div
+          className={`bg-white  w-full ${
+            scroll ? " bg-white  fixed top-0 z-10" : ""
+          }`}
+        >
+      {/* navbar for mobile view */}
+      <MobileNav />
+      </div>
+      </div>
       {/* Sidebar */}
-      <div className="bg-[#3B3B3B] w-[253px] h-full fixed overflow-y-auto">
+      <div className="bg-[#3B3B3B] lg:block hidden w-[253px] h-full fixed overflow-y-auto">
         <div className="flex flex-col justify-start w-[210px] h-full">
           {/* logo part */}
             <div className='flex justify-center mt-9'>
                 <Image src={Logo} height={18} width={12} className='me-1'/>
-      <h1 className='text-[30px] custom-font my-6 '>
+      <h1 className='text-[30px] custom-font my-3'>
       Fauget</h1>
       </div>
 
@@ -105,7 +117,7 @@ const SideNav = ({ children }) => {
       {/* Main Content and Top Navbar */}
       <div className="flex flex-col w-full ml-1/5"> 
         {/* Top Navbar */}
-        <div className=" flex justify-between items-center pt-9 px-8">
+        <div className=" lg:flex hidden justify-between items-center pt-11 pb-3 px-8">
         
          
           <div>

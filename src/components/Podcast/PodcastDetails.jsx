@@ -65,12 +65,12 @@ export default function PodcastDetails() {
             <SideNav>
 
             <div className='margin-common relative'>
-    <div className="relative w-full h-full">
+    <div className="relative  w-full h-full">
         <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-80"></div>
         
         <img
             src={song.artist.picture_xl}
-            className='w-[1087px] h-[346px]'
+            className='lg:w-[1087px] mt-8 lg:mt-1 lg:h-[346px] w-auto h-[350px]'
         />
 
         <div className='absolute top-0 left-0 pt-4 ps-9'>
@@ -85,9 +85,9 @@ export default function PodcastDetails() {
        
     </div>
     <div className=''>
-        < p className='mt-6 text-white text[18px] font-semibold  leading-[21px] '>Music, often regarded as a universal language, possesses a profound impact on individuals <br/>and societies alike. While it has long been celebrated for its ability to evoke emotions, foster  <br/> connections, and uplift spirits, the flip side of the melody reveals a spectrum of adverse  <br/> effects that are often overlooked</p>
+        < p className='mt-6 text-white lg:text-[18px] text-[12px] font-semibold leading-[10px}  lg:leading-[21px] '>Music, often regarded as a universal language, possesses a profound impact on individuals <br/>and societies alike. While it has long been celebrated for its ability to evoke emotions, foster  <br/> connections, and uplift spirits, the flip side of the melody reveals a spectrum of adverse  <br/> effects that are often overlooked</p>
     </div>
-    <button className='common-btn mt-9 font-semibold text-[18px]'>Related</button>
+    <button className='common-btn mt-9 font-semibold lg:text-[18px] text-[12px]'>Related</button>
     <div className="grid mt-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
     {data.map(song => (
        < div key={song.id} className="relative" >
